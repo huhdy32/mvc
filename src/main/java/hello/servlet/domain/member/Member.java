@@ -9,11 +9,11 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Member {
     private Long id;
-    private String userName;
+    private String username;
     private int age;
 
     public Member(String userName, int age) {
-        this.userName = userName;
+        this.username = userName;
         this.age = age;
     }
 }
