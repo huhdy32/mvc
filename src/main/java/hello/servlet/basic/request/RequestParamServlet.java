@@ -30,12 +30,16 @@ public class RequestParamServlet extends HttpServlet {
         System.out.println("userName = " + userName);
         System.out.println("age = " + age);
 
+
         /*
-        내부 파라미터 이름이 중복되는 경우,
-        http://localhost:8080/request-param?userName=hello&age=20&userName=john
+        클라이언트에서는, 두가지 방식
+        1. URL로 보내는 방식,
+        2. 바디에 쿼리파라미터를 보내는 방식
+
+        두가지라도, 서버에선 HttpServletRequest 를 통해 .getParameter()로 가져온다.
+        하지만, 서블릿은 (2) 방식에서 Content-Type이 x-www-url-encoded 가 적용되지 않았다면, 위 처럼 사용불가
+        -> PostMan 으로 확인해보기ㄷ
 
          */
-
-
     }
 }
