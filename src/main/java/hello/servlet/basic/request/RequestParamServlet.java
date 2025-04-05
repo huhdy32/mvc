@@ -40,6 +40,14 @@ public class RequestParamServlet extends HttpServlet {
         하지만, 서블릿은 (2) 방식에서 Content-Type이 x-www-url-encoded 가 적용되지 않았다면, 위 처럼 사용불가
         -> PostMan 으로 확인해보기ㄷ
 
+
+        서블릿에서,
+        // GET  으로 보냈을 땐, 바디에 적힌 파라미터를 읽지 않는다. ( 서블릿 스펙 상 )
+        // POST 으로 보냈을 땐, 바디에 적힌 파라미터를 읽어낸다.
+
+        `RequestBodyStringServlet`으로 바디를 읽어본 결과, POST MAN으로 보낸 GET, POST 모두 데이터가 바디에 담겨 있다.
+        즉, 위에서 GET 에도 메시지 바디엔 데이터가 담겨 있었지만, HTTP Spec 상, Get에는 바디를 담지 않는 것으로 정의되어있음으로, 서블릿에서 해당 파라미터를 읽는 기능을 제공하지 않는다.
+
          */
     }
 }
