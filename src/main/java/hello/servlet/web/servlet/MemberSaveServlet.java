@@ -15,11 +15,13 @@ public class MemberSaveServlet extends HttpServlet {
     private final MemberRepository memberRepository = MemberRepository.getInstance();
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // 비즈니스 로직이 먼저 실행되네??
         final String userName = req.getParameter("username");
         final Integer age = Integer.parseInt(req.getParameter("age"));
 
         final Member member = new Member(userName, age);
         memberRepository.save(member);
+        // 비즈니스 끝 나구
 
         resp.setStatus(HttpServletResponse.SC_OK);
         resp.setContentType("text/html;charset=UTF-8");
